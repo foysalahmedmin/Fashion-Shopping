@@ -152,6 +152,7 @@ table tbody tr td{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
     background: var(---dark);
     color: white;
     padding: 10px 20px;
@@ -209,11 +210,56 @@ table tbody tr td{
 .inputBoxes .imageInputField{
     text-align: center;
     max-width: 576px;
-    margin: 0 auto;
-}
-.add-image{
+    margin: 0 auto .7rem;
     background-color: #fff;
-    padding: 10px 30px;
-    margin-bottom: .7rem;
+    padding: 10px 0;
+}
+.inputBoxes .imageInputField.active{
+    color: green ;
+    box-shadow: 0 0 10px #fff;
 }
 /* end */
+
+@media (max-width: 992px){
+    html{
+        font-size: 85%;
+    }
+    td{
+        font-size: .7rem;
+        padding: .2rem;
+    }
+}
+
+
+@media (max-width: 576px) { 
+    html{
+        font-size: 70%;
+    }
+
+    th{
+        font-size: .7rem;
+    }
+    td{
+        font-size: .5rem;
+        padding: .2rem;
+    }
+
+    .prices-calculation {
+        display: block;
+
+    }
+    #promoCode{
+        width: 100%;
+        padding: 2px 7px;
+    }
+    .prices{
+        display: flex;
+        justify-content: end;
+        margin-bottom: .7rem;
+    }
+    .prices > div{
+        display: flex;
+    }
+
+ }
+ 
