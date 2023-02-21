@@ -55,6 +55,21 @@ document.getElementById("cart-container").onclick = function(event){
     if(Target == "removeCart"){
         const selectTr = event.target.parentNode.parentNode ;
         selectTr.parentNode.removeChild(selectTr) ;
+
+        // card button change according to cart delete click ;
+        const findTrTargetIdValue = selectTr.getAttribute("target-id");
+        console.log(findTrTargetIdValue)
+        const cards = document.getElementsByClassName("card");
+        for(let i = 0; i < cards.length; i++){
+            const addBtn = cards[i].children[1].children[4] ;
+            const cartId = cards[i].getAttribute("id");
+            
+            console.log(addBtn.getAttribute("class"));
+            if(cartId == findTrTargetIdValue){
+                addBtn.setAttribute("class" , "addToCart");
+                addBtn.innerHTML = `Add to Cart <i class="fa-solid fa-cart-plus"></i>` ;
+            }
+        }
         totalPriceCalculations()
     }else if(Target == "decreaseBtn" || Target == "increaseBtn" ){
         const qntValue = +event.target.parentNode.children[1].value ;
