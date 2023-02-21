@@ -1,0 +1,219 @@
+:root{
+    ---Primary-Color: #5099b9 ;
+    ---red : #ff4343be ;
+    ---dark: #212121;
+    ---bg: #a7a7a7 ;
+}
+/* utility style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+.title{
+    text-align: center;
+    max-width: 576px;
+    margin: 0 auto 2.5rem;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+body{
+    background-color: var(---bg);
+}
+section{
+    padding: 60px 7%;
+}
+/* end */
+
+/* header */
+header{
+    background-color: white;
+    box-shadow: 0 1px 5px #313131;
+    padding: 15px 7%;
+    position: fixed;
+    width: 100%;
+    top: 0 ;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navItems{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    font-size: 1.1rem;
+}
+.navItems li a {
+    color: black ;
+}
+.navItems .cart{
+    font-size: 2rem;
+}
+/* header end */
+
+/* product section */
+.products{
+    margin-top: 50px;
+}
+.products .product-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.card {
+    width: 320px;
+    overflow: hidden;
+    background-color: var(---dark);
+    color: white ;
+    box-shadow: 0 1px 7px black;
+}
+.card img {
+    width:  100%;
+}
+.card .contents{
+    padding: 1rem;
+}
+.card .contents .productName{
+    margin-bottom: .8rem;
+}
+.card .contents .paragraph{
+    margin: .4rem 0;
+    color:  #ffffffaf;
+    font-size: .9rem;
+}
+.card .contents .stock-price{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+.card .contents .addToCart{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.card .contents .addToCart:hover{
+    box-shadow: 0 0 10px white;
+}
+.card .contents .added{
+    background-color: var(---red);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.card .contents .added:hover{
+    box-shadow: 0 0 10px var(---red);
+}
+/* end */
+
+
+/* calculation section */
+table{
+    width: 100%;
+    text-align:  center;
+}
+table thead{
+    background: var(---dark);
+    color: white;
+}
+table tbody tr:nth-child(Odd){
+    background-color: #ffffff7f;
+}
+table tbody tr td{
+    padding: 10px 5px;
+}
+#QuantityValue{
+    width: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.removeCart{
+    color: var(---red);
+    cursor: pointer;
+}
+.qntBtn{
+    color: green ;
+    background: none;
+    font-weight: 700;
+    padding: 5px;
+    cursor: pointer;
+}
+.prices-calculation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(---dark);
+    color: white;
+    padding: 10px 20px;
+
+}
+#promoCode{
+    border-radius: 5px;
+    padding: 4px 7px;
+    background: var(---bg);
+    color: white;
+}
+.prices-calculation .prices{
+    display: flex;
+    align-items: center;
+    gap: 25px ;
+}
+/* end */
+
+
+/* product add section */
+.add-btn{
+    text-align: center;
+}
+.add-btn button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: var(---dark);
+}
+.add-btn button:hover{
+    box-shadow: 0 0 10px var(---dark);
+}
+
+.inputBoxes{
+    max-width: 750px;
+    text-align: center;
+    margin: 0 auto;
+}
+.inputBoxes > div{
+    display: flex;
+    justify-content: space-between;
+    gap: .7rem;
+}
+.inputBoxes > div label{
+    width: 100%;
+}
+.inputBoxes input, textarea {
+    margin:  10px auto;
+    width: 100%;
+    padding: 10px;
+}
+.inputBoxes input[type ="file"]{
+    display: none;
+} 
+.inputBoxes .imageInputField{
+    text-align: center;
+    max-width: 576px;
+    margin: 0 auto;
+}
+.add-image{
+    background-color: #fff;
+    padding: 10px 30px;
+    margin-bottom: .7rem;
+}
+/* end */
