@@ -1,29 +1,40 @@
-let url ;
+// Add form collapsing according to admin btn;
+document.getElementById("admin-btn").addEventListener("click", function() {
+    this.classList.toggle("active");
+    // var content = this.nextElementSibling;
+    let content = document.getElementById("add-container");
+    if (content.style.maxHeight){
+    content.style.maxHeight = null;
+    } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+    } 
+});
+
+// take image ;
+let url ; //temporary stor new image url ;
 document.getElementById("imageInput").onchange = function (){
     const reader = new FileReader()
     reader.onload = function imgUrl(){
     let imageUrl = reader.result ;
     url = imageUrl ;
     document.querySelector(".imageInputField").classList.add("active");
-    
-    
 }; 
 reader.readAsDataURL(imageInput.files[0]) ;
 }
 
+// Add a new card according to Card "addToCard" button ;
 document.getElementById("productAddBtn").onclick = function(){
     const imageUrl = url ;
+    const imageValue = document.getElementById("imageInput").value ;
     const productNameInput = document.getElementById("productNameInput").value;
     const productColorInput = document.getElementById("productColorInput").value;
     const productDetailsInput = document.getElementById("productDetailsInput").value;
     const productStockInput = document.getElementById("productStockInput").value;
     const productPriceInput = document.getElementById("productPriceInput").value;
-    if(productNameInput == "" || productColorInput == "" || productDetailsInput == "" || productStockInput == "" || productPriceInput == "" ){
+    if(productNameInput == "" || productColorInput == "" || productDetailsInput == "" || productStockInput == "" || productPriceInput == ""|| imageValue == "" ){
         alert("Your Input is missing;")
         return false ;
     }
-
-    console.log(imageUrl, productNameInput, productColorInput, productDetailsInput, productStockInput, productPriceInput) ;
 
     newCardAdd(imageUrl, productNameInput, productColorInput, productDetailsInput, productStockInput, productPriceInput );
 
@@ -33,10 +44,13 @@ document.getElementById("productAddBtn").onclick = function(){
     document.getElementById("productDetailsInput").value = '';
     document.getElementById("productStockInput").value = '' ;
     document.getElementById("productPriceInput").value = '' ;
+
+    document.querySelector(".imageInputField").classList.remove("active");
 }
 
 
-let productIdNo = 9 ;
+// set a new card ;
+let productIdNo = 9 ; 
 function newCardAdd(imageUrl, productName, productColor, productDetails, productStock, productPrice ){
     productIdNo += 1;
     let productID = "card-" + productIdNo ;

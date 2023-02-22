@@ -21,7 +21,7 @@
             <ul class="navItems">
                 <li><a href="#">Home</a></li>
                 <li><i class="fa-solid fa-magnifying-glass"></i></li>
-                <li class="cart"><a href="./shoppin-cart.html" target="_blank"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li class="cart"><a href="#cart-section"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -162,8 +162,51 @@
             </div>
         </section>
 
+        <section class="admin">
+            <div class="container">
+                <div class="admin-btn" >
+                    <button class="admin" id="admin-btn">
+                        <i class="fa-solid fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                <div class="add-container" id="add-container">
+                    <div class="title">
+                        <h1>New Product</h1>
+                    </div>
+                    <div class="inputBoxes">
+                        <div class="imageInputField">
+                            <label for="imageInput" class="add-image"><i class="fa-solid fa-folder-plus"></i> Add Image</label>
+                            <input type="file" name="" id="imageInput" accept="image/*">
+                        </div>
+                        <div>
+                            <label for="productNameInput">
+                                <input type="text" placeholder="Product Name" id="productNameInput">
+                            </label>
+                            <label for="productColorInput">
+                                <input type="text" placeholder="Product Color" id="productColorInput">
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label for="productStockInput">
+                                <input type="number" placeholder="Product stock" id="productStockInput">
+                            </label>
+                            
+                            <label for="productPriceInput">
+                                <input type="number" placeholder="Product Price" id="productPriceInput">
+                            </label>
+                        </div>
+                        <label for="productDetailsInput"></label>
+                        <textarea type="text" placeholder="Product Details" id="productDetailsInput" style="resize: vertical;"></textarea>
+                    </div>
+                    <div class="add-btn">
+                        <button id="productAddBtn">Add Product</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section>
+        <section id="cart-section">
             <div class="container">
                 <div class="title">
                     <h1>Shopping Carts</h1>
@@ -201,45 +244,6 @@
                         </div>
                         <input type="text" placeholder="Enter Your Promo Code" id="promoCode">
                     </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="admin">
-            <div class="container">
-                <div class="title">
-                    <h1>New Product</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, veniam explicabo. Rem hic ex totam!</p>
-                </div>
-                <div class="inputBoxes">
-                    <div class="imageInputField">
-                        <label for="imageInput" class="add-image"><i class="fa-solid fa-folder-plus"></i> Add Image</label>
-                        <input type="file" name="" id="imageInput" accept="image/*">
-                    </div>
-                    <div>
-                        <label for="productNameInput">
-                            <input type="text" placeholder="Product Name" id="productNameInput">
-                        </label>
-                        <label for="productColorInput">
-                            <input type="text" placeholder="Product Color" id="productColorInput">
-                        </label>
-                    </div>
-                    
-                    <div>
-                        <label for="productStockInput">
-                            <input type="number" placeholder="Product stock" id="productStockInput">
-                        </label>
-                        
-                        <label for="productPriceInput">
-                            <input type="number" placeholder="Product Price" id="productPriceInput">
-                        </label>
-                    </div>
-                    <label for="productDetailsInput"></label>
-                    <textarea type="text" placeholder="Product Details" id="productDetailsInput" style="resize: vertical;"></textarea>
-                </div>
-                <div class="add-btn">
-                    <button id="productAddBtn">Add Product</button>
                 </div>
             </div>
         </section>

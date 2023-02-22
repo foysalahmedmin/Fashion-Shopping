@@ -1,9 +1,9 @@
 
-
+// Cards Event Delegation for card button ;
 document.getElementById("product-items").onclick = function(event){
     const findAddToCartBtn = event.target.getAttribute("class");
+    // Add a new card according to Card "addToCard" button ;
     if(findAddToCartBtn == "addToCart"){
-        
         const id = event.target.parentNode.parentNode.getAttribute("id");
         const productName = event.target.parentNode.children[0].innerText ;
         const productColor = event.target.parentNode.children[1].innerText ;
@@ -13,8 +13,10 @@ document.getElementById("product-items").onclick = function(event){
         event.target.setAttribute("class" , "added");
         event.target.innerText = "Cancel" ;
         
-        totalPriceCalculations()
+        // Update total pice;
+        totalPriceCalculationsAndSetSerial()
     }
+    // Remove this card from cart according to card "added" button ;
     else if(findAddToCartBtn == "added"){
         const id = event.target.parentNode.parentNode.getAttribute("id");
         const carts = document.getElementsByClassName('cart-data');
@@ -24,12 +26,15 @@ document.getElementById("product-items").onclick = function(event){
                 carts[i].remove();
                 event.target.setAttribute("class" , "addToCart");
                 event.target.innerHTML = `Add to Cart <i class="fa-solid fa-cart-plus"></i>` ;
-                totalPriceCalculations()
+
+                // update total price ;
+                totalPriceCalculationsAndSetSerial()
             }
         }
     }
 }
 
+// set a new cart data ;
 function displayData (idOfp, nameOfP, colorOfp, stockOfp, priceOfP){
     const cartContainer = document.getElementById("cart-container");
     const tr = document.createElement("tr");
@@ -45,39 +50,47 @@ function displayData (idOfp, nameOfP, colorOfp, stockOfp, priceOfP){
     <td >$<span class= "pTotalPriceCart">${priceOfP}</span></td>
     <td><i class="fa-regular fa-trash-can removeCart" target= "removeCart"></i></td>
     ` ;
-    cartContainer.appendChild(tr) ;
 
+
+    cartContainer.appendChild(tr) ;
 }
 
 
 document.getElementById("cart-container").onclick = function(event){
+
     const Target = event.target.getAttribute("target");
+    // cart item remove process ;
     if(Target == "removeCart"){
         const selectTr = event.target.parentNode.parentNode ;
         selectTr.parentNode.removeChild(selectTr) ;
 
         // card button change according to cart delete click ;
         const findTrTargetIdValue = selectTr.getAttribute("target-id");
-        console.log(findTrTargetIdValue)
         const cards = document.getElementsByClassName("card");
         for(let i = 0; i < cards.length; i++){
+            // get card button;
             const addBtn = cards[i].children[1].children[4] ;
+            // get card id ;
             const cartId = cards[i].getAttribute("id");
-            
-            console.log(addBtn.getAttribute("class"));
             if(cartId == findTrTargetIdValue){
+                // check button class and text;
                 addBtn.setAttribute("class" , "addToCart");
                 addBtn.innerHTML = `Add to Cart <i class="fa-solid fa-cart-plus"></i>` ;
             }
         }
-        totalPriceCalculations()
-    }else if(Target == "decreaseBtn" || Target == "increaseBtn" ){
+        // total price update ;
+        totalPriceCalculationsAndSetSerial();
+    }
+
+    // Quantity update process; 
+    else if(Target == "decreaseBtn" || Target == "increaseBtn" ){
         const qntValue = +event.target.parentNode.children[1].value ;
         const limitStock = +event.target.parentNode.children[1].getAttribute("max") ;
         // Single cart total price value;
         const TotalPriceCart = event.target.parentNode.parentNode.children[6].children[0];
         const productPrice = +event.target.parentNode.parentNode.children[3].children[0].innerText ;
         if(Target == "decreaseBtn" && qntValue > 1 ){
+
             const updateValue = qntValue - 1 ;
             event.target.parentNode.children[1].value = updateValue ;
 
@@ -92,16 +105,20 @@ document.getElementById("cart-container").onclick = function(event){
             const updateTotalPrice = updateValue * productPrice ;
             TotalPriceCart.innerText = updateTotalPrice ;
         }else{
+            // validation alert ;
             if(Target == "increaseBtn"){
                 alert("Stock Limited...!");
             }
         }
-        totalPriceCalculations() ;
+        // total price update ;
+        totalPriceCalculationsAndSetSerial() ;
         console.log(TotalPriceCart.innerText) ;
     }
+    
 }
 
-function totalPriceCalculations(){
+// Price calculation and set serial of cart ;
+function totalPriceCalculationsAndSetSerial(){
     const totalPrice = document.getElementById("total-price-value");
     let updateTotalPriceValue = 0;
     let serialNo = 0
@@ -114,9 +131,10 @@ function totalPriceCalculations(){
         serialNoFiled[i].innerText = serialNo ;
     }
     totalPrice.innerText = updateTotalPriceValue;
-    setDiscountPrice ()
+    setDiscountPrice ();
 }
 
+// Promo code validation and total price update ;
 document.getElementById('promoCode').addEventListener("keypress" , function (event){
     if(event.key == 'Enter'){
         const totalPriceField = document.getElementById("total-price-value")

@@ -13,6 +13,13 @@
     text-decoration: none;
     border: none;
     outline: none;
+    transition: all .2s;
+}
+
+html{
+    font-size: 100%;
+    scroll-behavior: smooth;
+    scroll-padding: 90px;
 }
 .title{
     text-align: center;
@@ -28,7 +35,7 @@ body{
     background-color: var(---bg);
 }
 section{
-    padding: 60px 7%;
+    padding: 3rem 7%;
 }
 /* end */
 
@@ -63,7 +70,7 @@ nav{
 
 /* product section */
 .products{
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .products .product-items{
     display: flex;
@@ -173,9 +180,39 @@ table tbody tr td{
 
 
 /* product add section */
+.admin-btn{
+    text-align:  center;
+    margin: 0 auto;
+    max-width: 576;
+}
+.add-container{
+    margin-top: 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+.add-container:hover{
+    transform: scaleY(1);
+    
+}
+
+.admin-btn button{
+    background: none;
+    padding : .7rem ;
+    border: 3px solid #fff;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.admin-btn button.active{
+    border: 3px solid var(---dark);
+    color: var(---dark)
+}
+
 .add-btn{
     text-align: center;
 }
+
 .add-btn button{
     padding: 10px 30px;
     border-radius: 5px;
