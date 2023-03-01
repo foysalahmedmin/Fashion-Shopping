@@ -71,10 +71,23 @@ nav{
 }
 /* header end */
 
-/* product section */
-.products{
-    margin-top: 70px;
+/* home section */
+.homeBanner{
+    background-image: url(../images/homeBanner.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    height: 40rem;
 }
+.homeBanner .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+/* end */
+
+/* product section */
 .products .product-items{
     display: flex;
     justify-content: space-around;
@@ -311,6 +324,9 @@ footer .container .Subscribe .sub-btn:hover{
     }
     section, footer{
         padding: 3rem 3%;
+    }
+    .homeBanner{
+        background-position: right -5rem bottom;
     }
     th{
         padding: .2rem 0;
